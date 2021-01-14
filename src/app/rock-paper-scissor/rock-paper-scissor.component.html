@@ -1,0 +1,29 @@
+<div class="p-d-flex" style="text-align: center">
+  <div style="font-weight: bold">Score Board</div>
+  <div>Computer</div>
+  <p>{{ computerScore }}</p>
+  <p-divider layout="vertical" type="solid"></p-divider>
+  <div>Player</div>
+  <p>{{ playerScore }}</p>
+</div>
+
+<div style="text-align: center;">
+  <p-splitter [style]="{'height': '300px'}" layout="vertical">
+    <ng-template>
+        Computer
+        <div>
+          <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-rock'></i></button>
+          <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-paper'></i></button>
+          <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-scissors'></i></button>
+        </div>
+    </ng-template>
+    <ng-template>
+        Player
+        <div>
+          <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-rock'></i></button>
+          <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-paper'></i></button>
+          <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-scissors'></i></button>
+        </div>
+    </ng-template>
+</p-splitter>
+</div>
