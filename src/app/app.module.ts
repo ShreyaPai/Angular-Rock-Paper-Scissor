@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {DividerModule} from 'primeng/divider';
 import {ButtonModule} from 'primeng/button';
 import {SplitterModule} from 'primeng/splitter';
+import {CardModule} from 'primeng/card';
 
 import { AppComponent } from './app.component';
 import { RockPaperScissorComponent } from './rock-paper-scissor/rock-paper-scissor.component';
@@ -16,6 +17,7 @@ import { RockPaperScissorComponent } from './rock-paper-scissor/rock-paper-sciss
     BrowserModule,
     DividerModule,
     ButtonModule,
+    CardModule,
     SplitterModule
   ],
   providers: [],
