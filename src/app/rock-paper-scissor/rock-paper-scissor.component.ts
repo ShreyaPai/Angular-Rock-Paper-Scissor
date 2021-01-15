@@ -27,7 +27,7 @@ export class RockPaperScissorComponent implements OnInit {
       this.computerChoice = this.weapons[computerSelect]
       console.log('computerChoice :>> ', this.computerChoice);
       this.computeWin(this.computerChoice, this.userChoice);
-      if (this.computerScore === 4 || this.playerScore === 4) {
+      if (this.computerScore === 5 || this.playerScore === 5) {
         this.disableUserselectButtons = true;
         this.checkResult();
       }
@@ -51,11 +51,11 @@ export class RockPaperScissorComponent implements OnInit {
   }
 
   public checkResult() {
-    if (this.computerScore === 4) {
-      this.computerScore++;
+    if (this.computerScore === 5) {
+      // this.computerScore++;
       this.showWinner = 'Sorry, You Lose!'
     } else {
-      this.playerScore++;
+      // this.playerScore++;
       this.showWinner = 'Yay! You Won!'
     }
     this.showResetButton = true;
