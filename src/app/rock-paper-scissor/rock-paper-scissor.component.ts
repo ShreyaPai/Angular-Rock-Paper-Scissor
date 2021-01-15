@@ -14,12 +14,17 @@ export class RockPaperScissorComponent implements OnInit {
   public count = 0;
   public weapons = ['rock', 'paper', 'scissor'];
   public showWinner = '';
+  public showButton = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   public pick(userSelect: string) {
+    if (this.computerScore === 5 || this.playerScore === 5) {
+      this.checkResult();
+      setTimeout(() => this.reset(), 3000)
+    }
     this.count++;
     this.userChoice = userSelect;
     console.log('userChoice :>> ', this.userChoice);
@@ -27,12 +32,8 @@ export class RockPaperScissorComponent implements OnInit {
       const computerSelect = Math.floor(Math.random() * 3);
       this.computerChoice = this.weapons[computerSelect]
       console.log('computerChoice :>> ', this.computerChoice);
-    }, 500);
       this.computeWin(this.userChoice, this.computerChoice);
-      if (this.computerScore === 5 || this.playerScore === 5) {
-        this.checkResult();
-        this.reset();
-      }
+    }, 200);
   }
 
   computeWin(computer, player) {
@@ -45,7 +46,7 @@ export class RockPaperScissorComponent implements OnInit {
       break;
       case 'rockpaper':
       case 'paperscissor':
-      case 'scissorpaper' : {
+      case 'scissorrock' : {
         this.playerScore ++;
       }
       break;
@@ -61,10 +62,17 @@ export class RockPaperScissorComponent implements OnInit {
   }
 
   reset() {
+    this.computerChoice = '';
+    this.userChoice = '';
     this.computerScore = 0;
     this.playerScore = 0;
-    this.userChoice = '';
-    this.computerChoice = ''
+    this.showButton = true
+  }
+
+  public startOver() {
+    this.reset();
+    this.showButton = false;
+    this.showWinner = '';
   }
 
 }
