@@ -8,23 +8,25 @@
   <p>{{ playerScore }}</p>
 </div>
 </div>
-
+<div>
+  <h3>{{ showWinner }}</h3>
+</div>
 <div class="card" style="border: 1px solid black; margin-top: 2%;">
   <p-splitter [style]="{'height': '500px'}" styleClass="p-mb-5" layout="vertical">
     <ng-template>
       <div class="p-col p-d-flex p-ai-center p-jc-center">
         Computer
-        <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-rock'></i></button>
-        <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-paper'></i></button>
-        <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-scissors'></i></button>
+        <button pButton pRipple type="button" icon="fas fa-hand-rock" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg" [disabled] = "disableComputerChoice"></button>
+        <button pButton pRipple type="button" icon="fas fa-hand-paper" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg" [disabled] = "disableComputerChoice"></button>
+        <button pButton pRipple type="button" icon="fas fa-hand-scissors" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg" [disabled] = "disableComputerChoice"></button>
       </div>
     </ng-template>
     <ng-template>
       <div class="p-col p-d-flex p-ai-center p-jc-center">
         Player
-        <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-rock'></i></button>
-        <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-paper'></i></button>
-        <button pButton pRipple type="button" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg"><i class='fas fa-hand-scissors'></i></button>
+        <button pButton pRipple type="button" icon="fas fa-hand-rock" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg" (click)="pick('rock')"></button>
+        <button pButton pRipple type="button" icon="fas fa-hand-paper" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg" (click)="pick('paper')"></button>
+        <button pButton pRipple type="button" icon="fas fa-hand-scissors" class="p-button-rounded p-button-info p-button-outlined" styleClass="p-button-lg" (click)="pick('scissor')"></button>
       </div>
     </ng-template>
 </p-splitter>
