@@ -55,7 +55,7 @@
 <div>
   <p-card *ngIf="showWinner !== ''" [style]="{width: '250px'}">
     <h1 style="font-size: x-large; font-weight: bolder; font-family:Verdana, Geneva, Tahoma, sans-serif">{{ showWinner }}</h1>
-    <button type="button" class="btn btn-outline-primary" *ngIf = "showButton" (click) = "startOver()">Start Over<i class="fa fa-refresh" style="font-size:24px"></i>
+    <button type="button" class="btn btn-outline-dark" *ngIf = "showButton" (click) = "startOver()">Start Over<i class="fa fa-refresh" style="font-size:24px"></i>
     </button>
 </p-card>
 </div>

@@ -22,10 +22,6 @@ export class RockPaperScissorComponent implements OnInit {
   }
 
   public pick(userSelect: string) {
-    if (this.computerScore === 5 || this.playerScore === 5) {
-      this.disableButtons = true;
-      this.checkResult();
-    }
     this.count++;
     this.userChoice = userSelect;
     console.log('userChoice :>> ', this.userChoice);
@@ -33,12 +29,16 @@ export class RockPaperScissorComponent implements OnInit {
       this.computerChoice = this.weapons[computerSelect]
       console.log('computerChoice :>> ', this.computerChoice);
       this.computeWin(this.computerChoice, this.userChoice);
+      if (this.computerScore === 4 || this.playerScore === 4) {
+        this.disableButtons = true;
+        this.checkResult();
+      }
   }
 
   computeWin(computer, player) {
     switch (computer + player) {
       case 'rockscissor':
-      case 'scrissorpaper':
+      case 'scissorpaper':
       case 'paperrock' : {
         this.computerScore ++;
       }
@@ -53,9 +53,11 @@ export class RockPaperScissorComponent implements OnInit {
   }
 
   public checkResult() {
-    if (this.computerScore === 5) {
+    if (this.computerScore === 4) {
+      this.computerScore++;
       this.showWinner = 'Sorry, You Lose!'
     } else {
+      this.playerScore++;
       this.showWinner = 'Yay! You Won!'
     }
     this.showButton = true;
