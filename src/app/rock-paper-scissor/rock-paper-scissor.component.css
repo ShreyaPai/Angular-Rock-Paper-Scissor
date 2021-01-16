@@ -1,0 +1,31 @@
+.game-component {
+  background-color: black;
+}
+
+.header {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bolder;
+  font-size: 60px;
+  color: black;
+  background-color: yellow;
+  margin-bottom: 0%;
+  margin-top: 0%;
+}
+
+.btn btn-secondary btn-lg {
+  background-color: white;
+}
+
+.winner-card {
+  color: silver;
+  border: slategrey;
+  margin-left: 40%;
+}
+
+.computer-header, .player-header {
+  text-align: center;
+  color: silver;
+  font-weight: bolder;
+  font-style: oblique;
+}
