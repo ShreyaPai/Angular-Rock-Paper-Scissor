@@ -1,5 +1,7 @@
 .game-component {
+  /* display: flex; */
   background-color: black;
+  text-align: center;
 }
 
 .header {
@@ -15,6 +17,7 @@
 
 .btn btn-secondary btn-lg {
   background-color: white;
+  margin-top: 5%;
 }
 
 .winner-card {
@@ -28,4 +31,10 @@
   color: silver;
   font-weight: bolder;
   font-style: oblique;
+}
+
+.btn btn-light {
+  border: silver;
+  color: slategrey;
+  size: 24px;
 }
