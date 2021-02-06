@@ -61,7 +61,7 @@ export class RockPaperScissorComponent implements OnInit {
     this.showResetButton = true;
   }
 
-  public startOver() {
+  public startOver(event: any) {
     this.computerChoice = '';
     this.userChoice = '';
     this.computerScore = 0;

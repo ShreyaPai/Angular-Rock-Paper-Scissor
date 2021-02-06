@@ -7,11 +7,15 @@ import {CardModule} from 'primeng/card';
 
 import { AppComponent } from './app.component';
 import { RockPaperScissorComponent } from './rock-paper-scissor/rock-paper-scissor.component';
+import { ScoreCardComponent } from './score-card/score-card.component';
+import { AnnounceWinnerComponent } from './announce-winner/announce-winner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RockPaperScissorComponent
+    RockPaperScissorComponent,
+    ScoreCardComponent,
+    AnnounceWinnerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,64 +1,48 @@
-<h1 class = "header">Rock Paper Scissor</h1>
+<app-score-card [computerScore]="computerScore" [playerScore]="playerScore"></app-score-card>
+<br>
 <div class="game-component">
-<div class="card" style="height: 150px !important; width: 400px !important; padding-top: 10px;  margin: auto;">
-  <div class="p-d-flex" style="border: 1px solid silver; margin-top: 10px;">
-  <div style="font-weight: bold; font-size: large; color: silver;">Score Board</div>
-  <div style="color: silver;">Computer
-  <p>{{ computerScore }}</p></div>
-  <p-divider layout="vertical" type="solid"></p-divider>
-  <div style="color: silver;">Player
-  <p>{{ playerScore }}</p></div>
-</div>
-</div>
-
 <div class="card" style="text-align: center; padding: 2%;">
   <p-splitter [style]="{'height': '300px'}" [panelSizes]="[50,50]" styleClass="p-mb-10">
     <ng-template>
       <div style="margin: auto; " class="p-col p-d-flex p-ai-center p-jc-center">
         <h1 class="computer-header">Computer</h1>
-        <button type="button" class="btn btn-secondary btn-lg" disabled><i class='fas fa-hand-rock' style="font-size: 130px; color: yellow;"></i></button> &nbsp;
-        <button type="button" class="btn btn-secondary btn-lg" disabled><i class='fas fa-hand-paper' style="font-size: 130px; color: yellow;"></i></button> &nbsp;
-        <button type="button" class="btn btn-secondary btn-lg" disabled><i class='fas fa-hand-scissors' style="font-size: 130px; color: yellow;"></i></button> &nbsp;
+        <button type="button" class="btn btn-secondary btn-lg" disabled><i class='fas fa-hand-rock' style="font-size: 130px;"></i></button> &nbsp;
+        <button type="button" class="btn btn-secondary btn-lg" disabled><i class='fas fa-hand-paper' style="font-size: 130px;"></i></button> &nbsp;
+        <button type="button" class="btn btn-secondary btn-lg" disabled><i class='fas fa-hand-scissors' style="font-size: 130px;"></i></button> &nbsp;
       </div>
       <div>
         <section *ngIf = "computerChoice === 'rock'">
-          <i class='fas fa-hand-rock' style="font-size: 130px; color: yellow;"></i>
+          <i class='fas fa-hand-rock' style="font-size: 100px"></i>
         </section>
         <section *ngIf = "computerChoice === 'paper'">
-          <i class='fas fa-hand-paper' style="font-size: 130px; color: yellow;"></i>
+          <i class='fas fa-hand-paper' style="font-size: 100px;"></i>
         </section>
         <section *ngIf = "computerChoice === 'scissor'">
-          <i class='fas fa-hand-scissors' style="font-size: 130px; color: yellow;"></i>
+          <i class='fas fa-hand-scissors' style="font-size: 100px;"></i>
         </section>
       </div>
     </ng-template>
     <ng-template>
       <div style="margin: auto; " class="p-col p-d-flex p-ai-center p-jc-center">
        <h1 class="player-header">Player</h1>
-        <button type="button" class="btn btn-secondary btn-lg" (click) = "pick('rock')" [disabled]="disableUserselectButtons"><i class='fas fa-hand-rock' style="font-size: 130px; color: yellow;"></i></button> &nbsp;
-        <button type="button" class="btn btn-secondary btn-lg" (click) = "pick('paper')" [disabled]="disableUserselectButtons"><i class='fas fa-hand-paper' style="font-size: 130px; color: yellow;"></i></button> &nbsp;
-        <button type="button" class="btn btn-secondary btn-lg" (click) = "pick('scissor')" [disabled]="disableUserselectButtons"><i class='fas fa-hand-scissors' style="font-size: 130px; color: yellow;"></i></button> &nbsp;
+        <button type="button" class="btn btn-secondary btn-lg" (click) = "pick('rock')" [disabled]="disableUserselectButtons"><i class='fas fa-hand-rock' style="font-size: 130px;"></i></button> &nbsp;
+        <button type="button" class="btn btn-secondary btn-lg" (click) = "pick('paper')" [disabled]="disableUserselectButtons"><i class='fas fa-hand-paper' style="font-size: 130px;"></i></button> &nbsp;
+        <button type="button" class="btn btn-secondary btn-lg" (click) = "pick('scissor')" [disabled]="disableUserselectButtons"><i class='fas fa-hand-scissors' style="font-size: 130px;"></i></button> &nbsp;
       </div>
       <div>
         <section *ngIf = "userChoice === 'rock'">
-          <i class='fas fa-hand-rock' style="font-size: 130px; color: yellow;"></i>
+          <i class='fas fa-hand-rock' style="font-size: 100px;"></i>
         </section>
         <section *ngIf = "userChoice === 'paper'">
-          <i class='fas fa-hand-paper' style="font-size: 130px; color: yellow;"></i>
+          <i class='fas fa-hand-paper' style="font-size: 100px;"></i>
         </section>
         <section *ngIf = "userChoice === 'scissor'">
-          <i class='fas fa-hand-scissors' style="font-size: 130px; color: yellow;"></i>
+          <i class='fas fa-hand-scissors' style="font-size: 100px;"></i>
         </section>
       </div>
     </ng-template>
 </p-splitter>
-</div>
-<div class="winner-card">
-  <p-card *ngIf="showWinner !== ''" [style]="{width: '250px'}">
-    <h1 style="font-size: x-large; font-weight: bolder; font-family:Verdana, Geneva, Tahoma, sans-serif">{{ showWinner }}</h1>
-    <!-- <button type="button" class="btn btn-outline-dark" *ngIf = "showResetButton" (click) = "startOver()">Start Over</button> -->
-    <button type="button" class="btn btn-light" *ngIf = "showResetButton" (click) = "startOver()">Start Over</button>
-</p-card>
+<app-announce-winner (startOver)="startOver($event)" [showWinner]="showWinner" [showResetButton]="showResetButton"></app-announce-winner>
 </div>
 </div>
 
